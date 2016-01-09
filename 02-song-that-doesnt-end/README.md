@@ -166,6 +166,8 @@ Use what you know about path params,`res.render`, the locals object and the temp
 
 HINT: you can pass multiple properties/values in the `locals` object that you pass to `res.render`.
 
+STRETCH: Can you incorporate your knowledge on module.exports and use an object of the information that you pass to 'res.render'. 
+
 ## Wireframes
 
 ![](wireframes/2326897.png)
