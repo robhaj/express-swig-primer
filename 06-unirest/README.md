@@ -46,11 +46,10 @@ If you need a refresher on the steps involved, check out [project setup](setup.m
 
 `Note: Make sure you add your heroku app to a readme.md file so you can find it later.`
 
+**Draw a Web Sequence Diagram of Express consuming an API**
+
 ## Flow Diagram of Express Consuming an API
 
-![Imgur](http://i.imgur.com/SrqNGDG.jpg)
-
-Image Key:
 
 1) A client (browser) sends an incoming HTTP request to your application.
 
@@ -262,7 +261,7 @@ git push heroku master
 You have the keys to the kingdom (er, well, NYT API) and the knowledge to accomplish great things (or at least impress potential employers). Use what you've learned to do any of the following:
 
 A. Add a new route to the app we built. Access and render data from another part of the [NYT API](http://developer.nytimes.com/).
-B. Use the links at the top to find and use another API for a brand new application. 
+B. Use the links at the top to find and use another API for a brand new application.
 
 ## Reflect: New Questions
 
@@ -273,7 +272,13 @@ What new questions do you have, now that you've gone through this exercise? List
 1.  
 1.  
 
-Spend some time this evening diving deeper into these questions. Don't worry if you don't find the exact answers, but keep these questions in mind.
+Now let's use the information and do something with it!
+
+### Create!
+When a user comes to your page, they see all the books that your API brings in for you.
+The user can see the Title, Author, an image of the book, a description of the book, the rank and how many weeks the book has been on the best sellers list!  
+
+*Hints: Try grabbing on thing at time for all items, what about grabbing and the information for one item?*
 
 ## Self assess
 * Have you completed the objectives?
