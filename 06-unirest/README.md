@@ -166,7 +166,7 @@ Where did we leave off? Check your notecard! We left off with the API's response
 
 ```
 app.get('/books', function(req, res) {
-	unirest.get('http://api.nytimes.com/svc/books/v3/lists/hardcover-fiction.json?api-key=' + process.end.NYT_API_KEY)
+	unirest.get('http://api.nytimes.com/svc/books/v3/lists/hardcover-fiction.json?api-key=' + process.env.NYT_API_KEY)
 	  .end(function (response) {
 	    console.log(res.body);
 		res.end('Done')
