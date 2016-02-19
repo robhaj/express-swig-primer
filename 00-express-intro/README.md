@@ -205,10 +205,10 @@ app.get("/greeting", function (req, res) {
 
 Sometimes there are static HTML files you want to send as a response. There are ways to send files using Express including `res.sendFile`, but if we want to send dynamic content, we will need to use something different.
 
-Until now we have been using `res.send` to display information to our user, but if we want to render a dynamic page we will use `res.render`. Not only will we use this method, we will render templates using an engine called `ejs`. This requires us to install another package, as well as including the line `app.set("view engine", "ejs")` inside of our `app.js`.
+Until now we have been using `res.send` to display information to our user, but if we want to render a dynamic page we will use `res.render`. Not only will we use this method, we will render templates using an engine called [`swig`](https://www.npmjs.com/package/swig). This requires us to install another package, as well as including the lines
 
 ```
-npm install --save ejs
+npm install --save swig
 ```
 
 Then in `app.js`...
@@ -217,23 +217,23 @@ Then in `app.js`...
 var express = require('express'),
 app = express();
 
-// WHEN the app loads for the first time, register "ejs" as the templating language
-// http://www.embeddedjs.com/
-app.set('view engine', 'ejs');
+// WHEN the app loads for the first time, register "swig" as the templating language
+
+var swig = new swig.Swig();
+app.engine('html', swig.renderFile);
+app.set('view engine', 'html'); `app.set("view engine", "swig")`
 
 // WHEN a user visits the homepage
 app.get('/', function(req, res){
-  // THEN read the file named index.ejs, and do some text replacing
-  // such that <%= name %> becomes "Elie"
   res.render('index', {name: "Elie"});
 });
 ```
 
-Now inside of a views folder, we can create an `index.ejs` file and include:
+Now inside of a views folder, we can create an `index.html` file and include:
 
 ```
 mkdir views
-touch views/index.ejs
+touch views/index.html
 ```
 
 Then add the following content:
@@ -245,7 +245,7 @@ Then add the following content:
   <head>
   </head>
   <body>
-    Hello, <%= name %>!
+    Hello, { name }!
   </body>
 </html>
 ```
