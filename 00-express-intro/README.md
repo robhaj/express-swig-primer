@@ -221,7 +221,8 @@ app = express();
 
 // WHEN the app loads for the first time, register "swig" as the templating language
 app.engine('html', swig.renderFile);
-app.set('view engine', 'html'); `app.set("view engine", "swig")`
+app.set('view engine', 'html');
+app.set("view engine", "swig")
 
 // WHEN a user visits the homepage
 app.get('/', function(req, res){
