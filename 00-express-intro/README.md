@@ -208,24 +208,24 @@ Sometimes there are static HTML files you want to send as a response. There are 
 Until now we have been using `res.send` to display information to our user, but if we want to render a dynamic page we will use `res.render`. Not only will we use this method, we will render templates using an engine called [`swig`](https://www.npmjs.com/package/swig). This requires us to install another package, as well as including the lines
 
 ```
-npm install --save swig
+npm install swig --save
 ```
 
 Then in `app.js`...
 
 ```js
-var express = require('express'),
+var express = require('express');
+var swig = require('swig');
+
 app = express();
 
 // WHEN the app loads for the first time, register "swig" as the templating language
-
-var swig = new swig.Swig();
 app.engine('html', swig.renderFile);
 app.set('view engine', 'html'); `app.set("view engine", "swig")`
 
 // WHEN a user visits the homepage
 app.get('/', function(req, res){
-  res.render('index', {name: "Elie"});
+  res.render('index', {name: "Robby"});
 });
 ```
 
